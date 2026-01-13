@@ -1,0 +1,44 @@
+4F13 Machine Learning: Coursework #3: Latent Dirichlet Allocation
+
+Your answers should contain an explanation of what you do, You must also give an interpretation
+of what the numerical values and graphs you provide mean – why are the results the way they
+are? Each question should be labelled and answered separately and distinctly. 
+
+In this assignment, we will give you two short pieces of matlab or python code, which implement
+the main ingredients of Gibbs sampling for a Mixture of Multinomials: bmm, and for LDA: lda.
+Before you start answering questions, you should spend some time understanding in detail, what
+this code does. This will enable you to answer all the questions with very little programming effort
+on your part.
+
+The data is in the file kos_doc_data.mat. The word counts are in the matrix variables Aand Bfor
+training and testing respectively, both matrices with 3 columns: document ID, word ID and word
+count. The words themselves are the variable V.
+
+a) Using the training data in A, find the maximum likelihood multinomial over words, and show
+the 20 largest probability items in a histogram. You may use the barhcommand. For that
+multinomial model, what is the highest and lowest possible test set log probability (for any
+possible test set)? Explain the implications of this.
+
+b) Instead of the maximum likelihood fit in question a), do Bayesian inference using a symmetric
+Dirichlet prior with a concentration parameter αon the word probabilities. Compare the
+expressions for the predictive word probabilities for these two types of inference, and explain
+the implications, both for common and rare words for both small and large values of α.
+
+c) For the Bayesian model, what is the log probability for the test document with ID 2001?
+Explain whether, when computing the log probability of a test document, you would use the
+multinomial or the categorical distribution function? What is the per-word perplexity for the
+document with ID 2001? What is the per-word perplexity over all documents in B? Explain
+why the perplexities are different for different documents? What would the perplexity be for
+a uniform multinomial?
+
+d) The bmmscript implements Gibbs sampling for a mixture of multinomials model. Use and
+modify the script to plot the evolution of the mixing proportions as a function of the number
+of Gibbs sweeps. Give a detailed account of whether and when the Gibbs sampler converges
+to the posterior distribution.
+
+e) Use and modify lda. Plot topic posteriors for K=20as a function of the number of Gibbs
+sweeps, up to 50 sweeps. Comment on these. Compute the perplexity for the documents
+in Bfor the state after 50 Gibbs sweeps, and compare to previously computed perplexities.
+Are 50 Gibbs sweeps adequate? Plot the word entropy (what units do you use?) for each of
+the topics and explain the evolution as a function of the number of Gibbs sweeps. Explain
+whether and why you think K=20is appropriate for this data set.
